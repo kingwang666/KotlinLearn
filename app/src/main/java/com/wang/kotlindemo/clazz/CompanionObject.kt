@@ -16,6 +16,8 @@ class CompanionObject {
     }
 
     companion object {
+
+        var aa = 1
         init {
             getLogger().invoke(this)
         }

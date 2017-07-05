@@ -9,7 +9,7 @@ import com.wang.kotlindemo.function.getLogger
 /**
  * 扩展接受者
  */
-class Chicken {
+open class Chicken {
 
     fun eat(){
         getLogger().invoke("eat chicken")
@@ -32,6 +32,11 @@ open class Duck{
         getLogger().invoke(this@Duck.toString())
     }
 
+    open fun OlderChicken.foo(){
+        getLogger().invoke("duck older foo")
+    }
+
+
     fun caller(chicken: Chicken) {
         chicken.foo()   // 调用扩展函数
     }
@@ -41,5 +46,9 @@ class BlackDuck : Duck(){
 
     override fun Chicken.foo() {
         getLogger().invoke("it is black duck foo")
+    }
+
+    override fun OlderChicken.foo(){
+        getLogger().invoke("black duck older foo")
     }
 }

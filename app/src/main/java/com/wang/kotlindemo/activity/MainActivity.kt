@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import com.wang.kotlindemo.R
 import com.wang.kotlindemo.adapter.TextAdapter
+import com.wang.kotlindemo.function.getLogger
 import com.wang.kotlindemo.interfaces.OnRecyclerClickListener
 import com.wang.kotlindemo.mdoel.TextMode
 
@@ -17,10 +18,13 @@ class MainActivity : AppCompatActivity(), OnRecyclerClickListener {
 
     lateinit var mItemArray: MutableList<TextMode>
 
+    val logger = getLogger()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val toolbar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
         mItemArray = mutableListOf(
@@ -36,6 +40,8 @@ class MainActivity : AppCompatActivity(), OnRecyclerClickListener {
         mRecyclerView = findViewById(R.id.recycler_view) as RecyclerView
         mRecyclerView.layoutManager = LinearLayoutManager(this)
         mRecyclerView.adapter = TextAdapter(mItemArray, this)
+
+
     }
 
 

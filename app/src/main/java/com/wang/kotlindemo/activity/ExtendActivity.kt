@@ -3,10 +3,7 @@ package com.wang.kotlindemo.activity
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.wang.kotlindemo.R
-import com.wang.kotlindemo.clazz.BlackDuck
-import com.wang.kotlindemo.clazz.Chicken
-import com.wang.kotlindemo.clazz.CompanionObject
-import com.wang.kotlindemo.clazz.Duck
+import com.wang.kotlindemo.clazz.*
 import com.wang.kotlindemo.function.getLogger
 import com.wang.kotlindemo.function.log
 import com.wang.kotlindemo.function.swap
@@ -47,6 +44,7 @@ class ExtendActivity : AppCompatActivity() {
             logDrink1(child)
             logDrink2(child)
             logDrink3(child)
+            logDrink3(parent)
         }
 
         findViewById(R.id.button3).setOnClickListener {
@@ -66,7 +64,8 @@ class ExtendActivity : AppCompatActivity() {
 
         findViewById(R.id.button5).setOnClickListener {
             Duck().caller(Chicken())
-            BlackDuck().caller(Chicken())
+            Duck().caller(OlderChicken())//扩展接收者静态解析
+            BlackDuck().caller(Chicken()) //分发接收者虚拟解析
         }
     }
 
