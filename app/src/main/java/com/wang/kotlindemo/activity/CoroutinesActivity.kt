@@ -2,6 +2,7 @@ package com.wang.kotlindemo.activity
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import com.wang.kotlindemo.R
 import com.wang.kotlindemo.function.getLogger
 import kotlinx.coroutines.experimental.CommonPool
@@ -23,7 +24,7 @@ class CoroutinesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_coroutines)
 
-        findViewById(R.id.button1).setOnClickListener {
+        findViewById<View>(R.id.button1).setOnClickListener {
             launch(CommonPool) {
                 logger(Thread.currentThread().name)
             }
@@ -33,7 +34,7 @@ class CoroutinesActivity : AppCompatActivity() {
 
         }
 
-        findViewById(R.id.button2).setOnClickListener {
+        findViewById<View>(R.id.button2).setOnClickListener {
             val lazySeq = buildSequence {
                 logger("START ")
                 for (i in 1..5) {
@@ -45,7 +46,7 @@ class CoroutinesActivity : AppCompatActivity() {
             lazySeq.take(3).forEach { logger(it) }
         }
 
-        findViewById(R.id.button3).setOnClickListener {
+        findViewById<View>(R.id.button3).setOnClickListener {
             val lazySeq = buildSequence {
                 logger("START ")
                 for (i in 1..5) {
@@ -59,7 +60,7 @@ class CoroutinesActivity : AppCompatActivity() {
             lazySeq.take(7).forEach { logger(it) }
         }
 
-        findViewById(R.id.button4).setOnClickListener {
+        findViewById<View>(R.id.button4).setOnClickListener {
             val lazySeq = buildSequence {
                 addIfEven(2,3,5)
                 addIfEven(2,8)

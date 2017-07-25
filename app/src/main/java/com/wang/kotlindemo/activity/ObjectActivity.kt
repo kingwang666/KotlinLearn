@@ -2,6 +2,7 @@ package com.wang.kotlindemo.activity
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import com.wang.kotlindemo.R
 import com.wang.kotlindemo.clazz.CompanionObject
 
@@ -14,11 +15,11 @@ class ObjectActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_object)
-        findViewById(R.id.button1).setOnClickListener {
+        findViewById<View>(R.id.button1).setOnClickListener {
             CompanionObject.getInstance()
         }
 
-        findViewById(R.id.button2).setOnClickListener {
+        findViewById<View>(R.id.button2).setOnClickListener {
             CompanionObject.getInstance2()
         }
     }

@@ -2,6 +2,7 @@ package com.wang.kotlindemo.activity
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import com.wang.kotlindemo.R
 import com.wang.kotlindemo.function.getLogger
 import com.wang.kotlindemo.mdoel.TextMode
@@ -44,13 +45,13 @@ class FieldActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_field)
-        findViewById(R.id.button1).setOnClickListener {
+        findViewById<View>(R.id.button1).setOnClickListener {
             stringRepresentation = "test"
             logger(stringRepresentation)
             logger(isActivity)
         }
 
-        findViewById(R.id.button2).setOnClickListener {
+        findViewById<View>(R.id.button2).setOnClickListener {
             logger(NAME)
             logger(com.wang.kotlindemo.function.NAME)
             /**
@@ -61,7 +62,7 @@ class FieldActivity : AppCompatActivity() {
             logger(StringUtil.TEST)
         }
 
-        findViewById(R.id.button3).setOnClickListener {
+        findViewById<View>(R.id.button3).setOnClickListener {
             model = TextMode(FieldActivity::class.java, "lateinit")
             logger(model)
         }

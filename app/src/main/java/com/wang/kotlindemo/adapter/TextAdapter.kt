@@ -30,7 +30,7 @@ class TextAdapter(private val itemArray: MutableList<TextMode>, private val list
     }
 
     inner class TextViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var mNameTV: TextView = itemView.findViewById(R.id.name_tv) as TextView
+        var mNameTV: TextView = itemView.findViewById<View>(R.id.name_tv) as TextView
 
         init {
             itemView.setOnClickListener {

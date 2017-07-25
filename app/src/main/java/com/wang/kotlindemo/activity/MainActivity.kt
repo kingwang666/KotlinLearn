@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
+import android.view.View
 import com.wang.kotlindemo.R
 import com.wang.kotlindemo.adapter.TextAdapter
 import com.wang.kotlindemo.function.getLogger
@@ -25,7 +26,7 @@ class MainActivity : AppCompatActivity(), OnRecyclerClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val toolbar = findViewById(R.id.toolbar) as Toolbar
+        val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
         mItemArray = mutableListOf(
                 TextMode(KotlinBaseActivity::class.java, "Base"),
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity(), OnRecyclerClickListener {
                 TextMode(FunActivity::class.java, "函数"),
                 TextMode(CoroutinesActivity::class.java, "协程")
         )
-        mRecyclerView = findViewById(R.id.recycler_view) as RecyclerView
+        mRecyclerView = findViewById<View>(R.id.recycler_view) as RecyclerView
         mRecyclerView.layoutManager = LinearLayoutManager(this)
         mRecyclerView.adapter = TextAdapter(mItemArray, this)
 

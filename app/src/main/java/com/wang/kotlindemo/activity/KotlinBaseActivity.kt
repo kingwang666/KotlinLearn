@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.View
 import com.wang.kotlindemo.R
 import com.wang.kotlindemo.function.getLogger
 import com.wang.kotlindemo.function.sum
@@ -24,31 +25,31 @@ class KotlinBaseActivity : AppCompatActivity() {
         setContentView(R.layout.activity_kotlin_base)
 
 
-        findViewById(R.id.button1).setOnClickListener {
+        findViewById<View>(R.id.button1).setOnClickListener {
             var sum = sum(1, 2)
             logger("sum = $sum")
             sum = sum(1, 2, 3)
             logger("sum = $sum")
         }
-        findViewById(R.id.button2).setOnClickListener {
+        findViewById<View>(R.id.button2).setOnClickListener {
             sum1(1, 2)
         }
-        findViewById(R.id.button3).setOnClickListener {
+        findViewById<View>(R.id.button3).setOnClickListener {
             logger("${maxOf(3, 1)}")
             logger("${maxOf1(1, 2)}")
         }
-        findViewById(R.id.button4).setOnClickListener {
+        findViewById<View>(R.id.button4).setOnClickListener {
             logger("${maxIsA(3, 1)}")
             val max = maxIsA(1, 3)
             logger("$max")
         }
 
-        findViewById(R.id.button5).setOnClickListener {
+        findViewById<View>(R.id.button5).setOnClickListener {
             logger("${judgeString("123")}")
             logger("${judgeString(123)}")
         }
 
-        findViewById(R.id.button6).setOnClickListener {
+        findViewById<View>(R.id.button6).setOnClickListener {
             val names = listOf("1", "2", "3")
             for (name in names) {
                 logger("for $name")
@@ -71,7 +72,7 @@ class KotlinBaseActivity : AppCompatActivity() {
             }
         }
 
-        findViewById(R.id.button7).setOnClickListener {
+        findViewById<View>(R.id.button7).setOnClickListener {
             val counts = defaultValue()
             counts.map { value ->
                 logger("value $value")
@@ -89,14 +90,14 @@ class KotlinBaseActivity : AppCompatActivity() {
 
         }
 
-        findViewById(R.id.button8).setOnClickListener {
+        findViewById<View>(R.id.button8).setOnClickListener {
             val map = mapOf("姓" to "王", "名" to "晓杰")
             for ((key, value) in map) {
                 logger("$key is $value")
             }
         }
 
-        findViewById(R.id.button9).setOnClickListener {
+        findViewById<View>(R.id.button9).setOnClickListener {
             var map = mapOf("姓" to "王", "名" to "晓杰")
             var list = listOf("1", "2", "3")
 //            map["名"] = "先生"
@@ -114,20 +115,20 @@ class KotlinBaseActivity : AppCompatActivity() {
             }
         }
 
-        findViewById(R.id.button10).setOnClickListener {
+        findViewById<View>(R.id.button10).setOnClickListener {
             var str = "124"
             str = str.toFuck()
             logger(str)
         }
 
-        findViewById(R.id.button11).setOnClickListener {
+        findViewById<View>(R.id.button11).setOnClickListener {
             var size = StringUtil.getStringSize(null)
             logger("size $size")
             size = StringUtil.getStringSize("123")
             logger("size $size")
         }
 
-        findViewById(R.id.button12).setOnClickListener {
+        findViewById<View>(R.id.button12).setOnClickListener {
             val apple = Apple()
             with(apple) {
                 wash()
@@ -141,7 +142,7 @@ class KotlinBaseActivity : AppCompatActivity() {
             }
         }
 
-        findViewById(R.id.button13).setOnClickListener {
+        findViewById<View>(R.id.button13).setOnClickListener {
             testReturn()
         }
 

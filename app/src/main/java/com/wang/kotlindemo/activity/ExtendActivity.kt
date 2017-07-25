@@ -2,6 +2,7 @@ package com.wang.kotlindemo.activity
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import com.wang.kotlindemo.R
 import com.wang.kotlindemo.clazz.*
 import com.wang.kotlindemo.function.getLogger
@@ -20,7 +21,7 @@ class ExtendActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_extend)
-        findViewById(R.id.button1).setOnClickListener {
+        findViewById<View>(R.id.button1).setOnClickListener {
             val list: MutableList<Int> = mutableListOf(1, 2, 3, 4, 5, 6)
             list.forEach(logger)
             list.swap(0, 5)
@@ -30,7 +31,7 @@ class ExtendActivity : AppCompatActivity() {
         /**
          * 扩展解析是静态的 并且优先成员函数
          */
-        findViewById(R.id.button2).setOnClickListener {
+        findViewById<View>(R.id.button2).setOnClickListener {
             val parent = Parent()
             val child = Child()
             with(parent) {
@@ -47,7 +48,7 @@ class ExtendActivity : AppCompatActivity() {
             logDrink3(parent)
         }
 
-        findViewById(R.id.button3).setOnClickListener {
+        findViewById<View>(R.id.button3).setOnClickListener {
             val list: MutableList<Int> = mutableListOf(1, 2)
             var index = (list.size - 1) / 2
             logger("the size is ${list.size}, the center index is $index")
@@ -58,11 +59,11 @@ class ExtendActivity : AppCompatActivity() {
             logger(list.center)
         }
 
-        findViewById(R.id.button4).setOnClickListener {
+        findViewById<View>(R.id.button4).setOnClickListener {
             CompanionObject.log()
         }
 
-        findViewById(R.id.button5).setOnClickListener {
+        findViewById<View>(R.id.button5).setOnClickListener {
             Duck().caller(Chicken())
             Duck().caller(OlderChicken())//扩展接收者静态解析
             BlackDuck().caller(Chicken()) //分发接收者虚拟解析

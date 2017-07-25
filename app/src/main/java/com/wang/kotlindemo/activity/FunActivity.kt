@@ -2,6 +2,7 @@ package com.wang.kotlindemo.activity
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import com.wang.kotlindemo.R
 import com.wang.kotlindemo.clazz.people.People
 import com.wang.kotlindemo.clazz.people.Women
@@ -20,18 +21,18 @@ class FunActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fun)
 
-        findViewById(R.id.button1).setOnClickListener {
+        findViewById<View>(R.id.button1).setOnClickListener {
             logger("the 1 to 2 center is ${1 center 2}")
         }
 
-        findViewById(R.id.button2).setOnClickListener {
+        findViewById<View>(R.id.button2).setOnClickListener {
 
 
             val a = arrayOf(1, -1)
             logger("the list is ${asList(1, 2, *a, 3)}")
         }
 
-        findViewById(R.id.button3).setOnClickListener {
+        findViewById<View>(R.id.button3).setOnClickListener {
             logPeople(object : People() {
                 override fun isWomen(): Boolean {
                     return false
@@ -39,7 +40,7 @@ class FunActivity : AppCompatActivity() {
             })
         }
 
-        findViewById(R.id.button4).setOnClickListener {
+        findViewById<View>(R.id.button4).setOnClickListener {
             var start = System.currentTimeMillis()
             var fix = findFixPoint(1.0)
             logger("the time is ${System.currentTimeMillis() - start}, the fix point is $fix")
@@ -48,7 +49,7 @@ class FunActivity : AppCompatActivity() {
             logger("the time is ${System.currentTimeMillis() - start}, the fix point is $fix")
         }
 
-        findViewById(R.id.button5).setOnClickListener {
+        findViewById<View>(R.id.button5).setOnClickListener {
             val list = listOf(1, 2, 3, 4, 5)
             //            val max = max(list) { max, a -> max < a }
 //            val max = max(list, {max, a -> max < a})
@@ -59,7 +60,7 @@ class FunActivity : AppCompatActivity() {
         val sum = fun Int.(other: Int): Int = this + other
 
 
-        findViewById(R.id.button6).setOnClickListener {
+        findViewById<View>(R.id.button6).setOnClickListener {
             var sum = IntSum { this + it }
             logger(sum)
             sum = 1.sum(2)
@@ -70,7 +71,7 @@ class FunActivity : AppCompatActivity() {
         fun length(s: String) = s.length
         fun isOdd(x: Int) = x % 2 != 0
 
-        findViewById(R.id.button7).setOnClickListener {
+        findViewById<View>(R.id.button7).setOnClickListener {
             val oddLength = compose(::isOdd, ::length)
             val strings = listOf("a", "ab", "abc")
             logger(strings.filter(oddLength))

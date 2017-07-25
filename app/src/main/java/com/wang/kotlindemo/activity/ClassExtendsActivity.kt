@@ -3,6 +3,7 @@ package com.wang.kotlindemo.activity
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.View
 import com.wang.kotlindemo.R
 import com.wang.kotlindemo.clazz.KWEmpty
 import com.wang.kotlindemo.clazz.people.People
@@ -24,14 +25,14 @@ class ClassExtendsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_class_extends)
 
-        findViewById(R.id.button1).setOnClickListener {
+        findViewById<View>(R.id.button1).setOnClickListener {
             val empty = KWEmpty()
             empty.log()
             empty.x = 3
             empty.log()
         }
 
-        findViewById(R.id.button2).setOnClickListener {
+        findViewById<View>(R.id.button2).setOnClickListener {
             logger("${object : People("wang", 25) {
                 override fun isWomen(): Boolean {
                     return false

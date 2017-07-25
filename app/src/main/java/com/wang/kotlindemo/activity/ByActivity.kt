@@ -2,6 +2,7 @@ package com.wang.kotlindemo.activity
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import com.wang.kotlindemo.R
@@ -26,17 +27,17 @@ class ByActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_by)
 
-        findViewById(R.id.button1).setOnClickListener {
+        findViewById<View>(R.id.button1).setOnClickListener {
             Boss(Staff("king wang")).working()
         }
 
-        findViewById(R.id.button2).setOnClickListener {
+        findViewById<View>(R.id.button2).setOnClickListener {
             logger(str)
             str = "test"
             logger(str)
         }
 
-        findViewById(R.id.button3).setOnClickListener {
+        findViewById<View>(R.id.button3).setOnClickListener {
             val lazy: Int by lazy {
                 logger("lazy start")
                 3
@@ -46,7 +47,7 @@ class ByActivity : AppCompatActivity() {
             logger(lazy)
         }
 
-        findViewById(R.id.button4).setOnClickListener {
+        findViewById<View>(R.id.button4).setOnClickListener {
             var score: Int by Delegates.observable(0) {
                 property, oldValue, newValue ->
                 logger("the ${property.name} is $oldValue -> $newValue")
@@ -57,7 +58,7 @@ class ByActivity : AppCompatActivity() {
             score = 100
         }
 
-        findViewById(R.id.button5).setOnClickListener {
+        findViewById<View>(R.id.button5).setOnClickListener {
             var map = mapOf("name" to "wang", "age" to 18)
             val name: String by map
             val age:Int by map
@@ -68,7 +69,7 @@ class ByActivity : AppCompatActivity() {
             logger("the $name1's age is $age1")
         }
 
-        findViewById(R.id.button6).setOnClickListener {
+        findViewById<View>(R.id.button6).setOnClickListener {
             logger(btn)
         }
     }

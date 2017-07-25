@@ -80,21 +80,21 @@ public fun <V : View> ViewHolder.bindOptionalViews(vararg ids: Int)
     : ReadOnlyProperty<ViewHolder, List<V>> = optional(ids, viewFinder)
 
 private val View.viewFinder: View.(Int) -> View?
-    get() = { findViewById(it) }
+    get() = { findViewById<View>(it) }
 private val Activity.viewFinder: Activity.(Int) -> View?
-    get() = { findViewById(it) }
+    get() = { findViewById<View>(it) }
 private val Dialog.viewFinder: Dialog.(Int) -> View?
-    get() = { findViewById(it) }
+    get() = { findViewById<View>(it) }
 private val DialogFragment.viewFinder: DialogFragment.(Int) -> View?
-    get() = { dialog.findViewById(it) }
+    get() = { dialog.findViewById<View>(it) }
 private val SupportDialogFragment.viewFinder: SupportDialogFragment.(Int) -> View?
-    get() = { dialog.findViewById(it) }
+    get() = { dialog.findViewById<View>(it) }
 private val Fragment.viewFinder: Fragment.(Int) -> View?
-    get() = { view.findViewById(it) }
+    get() = { view.findViewById<View>(it) }
 private val SupportFragment.viewFinder: SupportFragment.(Int) -> View?
-    get() = { view!!.findViewById(it) }
+    get() = { view!!.findViewById<View>(it) }
 private val ViewHolder.viewFinder: ViewHolder.(Int) -> View?
-    get() = { itemView.findViewById(it) }
+    get() = { itemView.findViewById<View>(it) }
 
 private fun viewNotFound(id:Int, desc: KProperty<*>): Nothing =
     throw IllegalStateException("View ID $id for '${desc.name}' not found.")
