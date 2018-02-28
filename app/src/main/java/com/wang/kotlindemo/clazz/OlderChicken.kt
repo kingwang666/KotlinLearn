@@ -6,5 +6,4 @@ package com.wang.kotlindemo.clazz
  */
 class OlderChicken : Chicken() {
 
-
 }

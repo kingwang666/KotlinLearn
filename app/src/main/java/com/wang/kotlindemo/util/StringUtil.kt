@@ -16,6 +16,7 @@ object StringUtil{
         Log.d("test", "StringUtil init")
     }
 
+    @JvmStatic
     fun getStringSize(str: String?): Int{
         return str?.length ?: 0
     }

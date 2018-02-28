@@ -126,5 +126,5 @@ class ExtendActivity : AppCompatActivity() {
     /**
      * val Foo.bar = 1 // 错误：扩展属性不能有初始化器
      */
-    val <T> List<T>.center get() = this[(this.size - 1) / 2]
+    val <T> List<T>.center get() = (this.size - 1) / 2
 }
